@@ -225,4 +225,33 @@ document.querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
     });
 });
 
+document.addEventListener("keydown", (e) => {
+    if (e.ctrlKey || e.metaKey || e.altKey) {
+        return;
+    }
+
+    const key = e.key;
+
+    if (/^[0-9]$/.test(key) || key === "." || key === "+" || key === "-" || key === "*" || key === "/" || key === "(" || key === ")") {
+        e.preventDefault();
+        appendValue(key);
+        return;
+    }
+    if (key === "Enter" || key === "=") {
+        e.preventDefault();
+        evaluate();
+        return;
+    }
+    if (key === "Backspace") {
+        e.preventDefault();
+        backspace();
+        return;
+    }
+    if (key === "Escape" || key === "c" || key === "C") {
+        e.preventDefault();
+        clearAll();
+        return;
+    }
+});
+
 render();
