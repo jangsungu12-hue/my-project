@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계산기</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="calculator">
+      <div id="display" class="display" aria-live="polite">0</div>
+      <div class="keypad">
+        <button class="key key--util" data-action="clear">C</button>
+        <button class="key key--util" data-action="sign">+/-</button>
+        <button class="key key--op" data-action="operator" data-value="/">÷</button>
+        <button class="key key--op" data-action="operator" data-value="*">×</button>
+
+        <button class="key" data-action="digit" data-value="7">7</button>
+        <button class="key" data-action="digit" data-value="8">8</button>
+        <button class="key" data-action="digit" data-value="9">9</button>
+        <button class="key key--op" data-action="operator" data-value="-">−</button>
+
+        <button class="key" data-action="digit" data-value="4">4</button>
+        <button class="key" data-action="digit" data-value="5">5</button>
+        <button class="key" data-action="digit" data-value="6">6</button>
+        <button class="key key--op" data-action="operator" data-value="+">+</button>
+
+        <button class="key" data-action="digit" data-value="1">1</button>
+        <button class="key" data-action="digit" data-value="2">2</button>
+        <button class="key" data-action="digit" data-value="3">3</button>
+        <button class="key key--eq" data-action="equals" style="grid-row: span 2;">=</button>
+
+        <button class="key key--zero" data-action="digit" data-value="0" style="grid-column: span 2;">0</button>
+        <button class="key" data-action="decimal">.</button>
+      </div>
+    </main>
+    <script type="module" src="dist/main.js"></script>
+  </body>
+</html>
