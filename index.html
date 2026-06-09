@@ -1,39 +1,139 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>계산기</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="calculator">
-      <div id="display" class="display" aria-live="polite">0</div>
-      <div class="keypad">
-        <button class="key key--util" data-action="clear">C</button>
-        <button class="key key--util" data-action="sign">+/-</button>
-        <button class="key key--op" data-action="operator" data-value="/">÷</button>
-        <button class="key key--op" data-action="operator" data-value="*">×</button>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        <button class="key" data-action="digit" data-value="7">7</button>
-        <button class="key" data-action="digit" data-value="8">8</button>
-        <button class="key" data-action="digit" data-value="9">9</button>
-        <button class="key key--op" data-action="operator" data-value="-">−</button>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-        <button class="key" data-action="digit" data-value="4">4</button>
-        <button class="key" data-action="digit" data-value="5">5</button>
-        <button class="key" data-action="digit" data-value="6">6</button>
-        <button class="key key--op" data-action="operator" data-value="+">+</button>
+        .calculator {
+            background: #1e1e1e;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            width: 340px;
+        }
 
-        <button class="key" data-action="digit" data-value="1">1</button>
-        <button class="key" data-action="digit" data-value="2">2</button>
-        <button class="key" data-action="digit" data-value="3">3</button>
-        <button class="key key--eq" data-action="equals" style="grid-row: span 2;">=</button>
+        .display {
+            background: #2d2d2d;
+            color: #fff;
+            font-size: 2.2rem;
+            text-align: right;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            min-height: 80px;
+            word-wrap: break-word;
+            word-break: break-all;
+            overflow-wrap: break-word;
+        }
 
-        <button class="key key--zero" data-action="digit" data-value="0" style="grid-column: span 2;">0</button>
-        <button class="key" data-action="decimal">.</button>
-      </div>
-    </main>
-    <script type="module" src="dist/main.js"></script>
-  </body>
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            font-size: 1.3rem;
+            padding: 18px 0;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: #3a3a3a;
+            color: #fff;
+            transition: background 0.15s, transform 0.05s;
+        }
+
+        button:hover {
+            background: #4a4a4a;
+        }
+
+        button:active {
+            transform: scale(0.96);
+        }
+
+        .operator {
+            background: #ff9500;
+            color: #fff;
+        }
+
+        .operator:hover {
+            background: #ffaa33;
+        }
+
+        .clear {
+            background: #a5a5a5;
+            color: #1e1e1e;
+        }
+
+        .clear:hover {
+            background: #b8b8b8;
+        }
+
+        .equals {
+            background: #34c759;
+            color: #fff;
+        }
+
+        .equals:hover {
+            background: #4cd964;
+        }
+
+        .paren {
+            background: #5a5a5a;
+            color: #fff;
+        }
+
+        .paren:hover {
+            background: #6a6a6a;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="clear" data-action="clear">C</button>
+            <button class="paren" data-value="(">(</button>
+            <button class="paren" data-value=")">)</button>
+            <button class="operator" data-value="/">/</button>
+
+            <button data-value="7">7</button>
+            <button data-value="8">8</button>
+            <button data-value="9">9</button>
+            <button class="operator" data-value="*">*</button>
+
+            <button data-value="4">4</button>
+            <button data-value="5">5</button>
+            <button data-value="6">6</button>
+            <button class="operator" data-value="-">-</button>
+
+            <button data-value="1">1</button>
+            <button data-value="2">2</button>
+            <button data-value="3">3</button>
+            <button class="operator" data-value="+">+</button>
+
+            <button data-action="backspace">⌫</button>
+            <button data-value="0">0</button>
+            <button data-value=".">.</button>
+            <button class="equals" data-action="equals">=</button>
+        </div>
+    </div>
+    <script src="dist/calculator.js"></script>
+</body>
 </html>
