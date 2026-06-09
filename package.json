@@ -1,0 +1,13 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "tsc && python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}
