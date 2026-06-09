@@ -1,6 +1,6 @@
 # 계산기
 
-TypeScript로 작성된 웹 계산기와 Python CLI 계산기를 함께 제공합니다.
+TypeScript로 작성된 웹 계산기입니다.
 
 ## TypeScript 웹 계산기
 
@@ -25,11 +25,3 @@ npm start
 - `src/calculator.ts` — 계산기 상태/연산 로직
 - `src/main.ts` — DOM 이벤트 처리
 - `dist/` — `tsc` 컴파일 결과물
-
-## Python CLI 계산기
-
-`calculator.py` — 표준 입력으로 `<숫자> <연산자> <숫자>` 형식의 식을 받아 평가합니다.
-
-```bash
-python3 calculator.py
-```
